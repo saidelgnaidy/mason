@@ -9,6 +9,8 @@ bricks:
     path: bricks/shared
   global:
     path: bricks/global
+  widgets:
+    path: bricks/widgets
 
   # widget:
   #   git:

@@ -1,1 +1,1 @@
-{"bricks":{"featuer":{"path":"bricks/featuer"},"auth":{"path":"bricks/auth"},"api_client":{"path":"bricks/api_client"},"shared":{"path":"bricks/shared"},"global":{"path":"bricks/global"}}}
+{"bricks":{"featuer":{"path":"bricks/featuer"},"auth":{"path":"bricks/auth"},"api_client":{"path":"bricks/api_client"},"shared":{"path":"bricks/shared"},"global":{"path":"bricks/global"},"widgets":{"path":"bricks/widgets"}}}
