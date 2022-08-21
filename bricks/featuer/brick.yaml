@@ -26,3 +26,8 @@ vars:
     description: Your Featuer Name
     default: featuer_name
     prompt: What is your Featuer Name ?
+  pro_name:
+    type: string
+    description: Your Project Name
+    default: Project_name
+    prompt: What is your Project Name ?
