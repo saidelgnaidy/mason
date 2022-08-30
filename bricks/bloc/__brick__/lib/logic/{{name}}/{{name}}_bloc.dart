@@ -19,7 +19,7 @@ class {{name.pascalCase()}}Bloc extends Cubit<{{name.pascalCase()}}State> {
   get() async {
     try {
       emit(const {{name.pascalCase()}}State.loading());
-      final result = await {{name.camelCase()}}RepoImp.get_{{name}}();
+      final result = await {{name.camelCase()}}RepoImp.get();
       result.fold(
         (l) {
           debugPrint('================= {{name.pascalCase()}} Bloc : ${KFailure.toError(l)}');

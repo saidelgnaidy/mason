@@ -15,8 +15,8 @@ abstract class {{name.pascalCase()}}RepoAbs {
 class {{name.pascalCase()}}RepoImp implements {{name.pascalCase()}}RepoAbs {
   
   @override
-  Future<Either<KFailure, SalesDelegateModel>> get_{{name}}() async {
-    Future<Response<dynamic>> func = Di.dioClient.get(KEndPoinst.{{name}}get);
+  Future<Either<KFailure, {{name.pascalCase()}}Model>> get_{{name}}() async {
+    Future<Response<dynamic>> func = Di.dioClient.get(KEndPoinst.get_{{name}});
     final result = await ApiClientHelper.responseToModel(func: func);
     return result.fold(
       (l) => left(l),

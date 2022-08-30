@@ -17,6 +17,7 @@ abstract class _AuthRepo {
   Future<Either<KFailure, Unit>> forgetPassword({required String email});
   Future<Either<KFailure, Unit>> resetPassword({required String password, required String passwordConf});
   Future<Either<KFailure, Unit>> updateUser({required UpdateUserModel model});
+  Future<Either<KFailure, Unit>> changePassword(ChangePasswordModel changePasswordModel);
 }
 
 class AuthRepoImpl implements _AuthRepo {
@@ -46,14 +47,19 @@ class AuthRepoImpl implements _AuthRepo {
 
   @override
   Future<Either<KFailure, UserModel>> login({required String email, required String password}) async {
-    Future<Response<dynamic>> func = Di.dioClient.post(KEndPoinst.login, data: {"email": email, "password": password});
+    Future<Response<dynamic>> func = Di.dioClient.post(
+      KEndPoinst.login,
+      data: {
+        "email": email,
+        "password": password,
+        "fcmToken": KStorage.i.getFcmToken,
+      },
+    );
 
     final result = await ApiClientHelper.responseToModel(func: func);
     return result.fold(
       (l) => left(l),
-      (r) {
-        return right(UserModel.fromJson(r));
-      },
+      (r) => right(UserModel.fromJson(r)),
     );
   }
 
@@ -104,6 +110,16 @@ class AuthRepoImpl implements _AuthRepo {
     return result.fold(
       (l) => left(l),
       (r) => right(UserModel.fromJson(r)),
+    );
+  }
+
+  @override
+  Future<Either<KFailure, Unit>> changePassword(ChangePasswordModel changePasswordModel) async {
+    Future<Response<dynamic>> func = Di.dioClient.post(KEndPoinst.change_pass, data: changePasswordModel.toJson());
+    final result = await ApiClientHelper.responseToModel(func: func);
+    return result.fold(
+      (l) => left(l),
+      (r) => right(unit),
     );
   }
 }
