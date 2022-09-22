@@ -1,8 +1,7 @@
-import '../../models/models/{{name}}/{{name}}_model.dart';
+import '../../models/{{name}}/{{name}}_model.dart';
 import '../../../shared/api_client/api_clien_helper.dart';
 import '../../../shared/api_client/endpoints.dart';
 import '../../../shared/error/failuers.dart';
-import '../../models/jobs/jobs_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import '../../../di.dart';
