@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:{{pro_name}}/data/models/{{name}}/{{name}}_model.dart';
-import 'package:{{pro_name}}/data/repository/{{name}}/{{name}}_repo.dart';
-import 'package:{{pro_name}}/shared/error/failuers.dart';
-import 'package:{{pro_name}}/shared/localization/trans.dart';
-import '{{name}}_state.dart';
+import '../../data/models/{{name}}/{{name}}_model.dart';
+import '../../data/repository/{{name}}/{{name}}_repo.dart';
+import '../../shared/error/failuers.dart';
+import '../../shared/localization/trans.dart';
+import '../../logic/{{name}}/{{name}}_state.dart';
 
 class {{name.pascalCase()}}Bloc extends Cubit<{{name.pascalCase()}}State> {
   {{name.pascalCase()}}Bloc({required this.{{name.camelCase()}}RepoImp}) : super(const {{name.pascalCase()}}State.loading());

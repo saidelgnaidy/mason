@@ -4,13 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 class UserInterceptor extends Interceptor {
-  /// it should modify on the request [Options] to add headers
   final void Function(RequestOptions)? onRequestCallback;
-
-  /// perform a callback on the [Response]
   final void Function(Response)? onResponseCallback;
-
-  /// perform a callback on the [DioError]
   final void Function(DioError)? onErrorCallback;
   final Future<Response<dynamic>> Function(RequestOptions options) onRetry;
 
@@ -54,39 +49,26 @@ class UserInterceptor extends Interceptor {
 }
 
 class PrettyDioLogger extends Interceptor {
-  /// Print request [Options]
   final bool request;
 
-  /// Print request header [Options.headers]
   final bool requestHeader;
 
-  /// Print request data [Options.branchData]
   final bool requestBody;
 
-  /// Print [Response.data]
   final bool responseBody;
 
-  /// Print [Response.headers]
   final bool responseHeader;
 
-  /// Print error message
   final bool error;
 
-  /// InitialTab count to logPrint json response
   static const int initialTab = 1;
 
-  /// 1 tab length
   static const String tabStep = '    ';
 
-  /// Print compact json response
   final bool compact;
 
-  /// Width size per logPrint
   final int maxWidth;
 
-  /// Log printer; defaults logPrint log to console.
-  /// In flutter, you'd better use debugPrint.
-  /// you can also write log in a file.
   void Function(Object object) logPrint;
 
   PrettyDioLogger({
