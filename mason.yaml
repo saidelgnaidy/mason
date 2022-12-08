@@ -11,4 +11,7 @@ bricks:
     path: bricks/global
   widgets:
     path: bricks/widgets
-  bloc: ^0.1.3+2
+  mybloc:
+    path: bricks/bloc
+  notifications_ctrl:
+    path: bricks/notifications_ctrl

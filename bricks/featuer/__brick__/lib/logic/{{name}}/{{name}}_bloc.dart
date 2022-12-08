@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/models/{{name}}/{{name}}_model.dart';
 import '../../data/repository/{{name}}/{{name}}_repo.dart';
-import '../../shared/error/failuers.dart';
+import '../../shared/error/failures.dart';
 import '../../shared/localization/trans.dart';
-import '../../logic/{{name}}/{{name}}_state.dart';
+import '{{name}}_state.dart';
 
 class {{name.pascalCase()}}Bloc extends Cubit<{{name.pascalCase()}}State> {
   {{name.pascalCase()}}Bloc({required this.{{name.camelCase()}}RepoImp}) : super(const {{name.pascalCase()}}State.loading());
 
-  static {{name.pascalCase()}}Bloc of(BuildContext context) {
-    return BlocProvider.of<{{name.pascalCase()}}Bloc>(context);
-  }
+  static {{name.pascalCase()}}Bloc of(BuildContext context) => BlocProvider.of<{{name.pascalCase()}}Bloc>(context);
+
 
   final {{name.pascalCase()}}RepoImp {{name.camelCase()}}RepoImp;
   {{name.pascalCase()}}Model? {{name.camelCase()}}Model;
@@ -19,7 +18,7 @@ class {{name.pascalCase()}}Bloc extends Cubit<{{name.pascalCase()}}State> {
   get() async {
     try {
       emit(const {{name.pascalCase()}}State.loading());
-      final result = await {{name.camelCase()}}RepoImp.get_{{name}}();
+      final result = await {{name.camelCase()}}RepoImp.get();
       result.fold(
         (l) {
           debugPrint('================= {{name.pascalCase()}} Bloc : ${KFailure.toError(l)}');

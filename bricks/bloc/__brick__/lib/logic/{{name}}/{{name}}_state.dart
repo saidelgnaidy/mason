@@ -7,4 +7,4 @@ abstract class {{name.pascalCase()}}State with _${{name.pascalCase()}}State{
   const factory {{name.pascalCase()}}State.success() = {{name.pascalCase()}}StateSuccess;
   const factory {{name.pascalCase()}}State.error({required String error}) = {{name.pascalCase()}}StateError;
 }
-// flutter pub run build_runner watch --delete-conflicting-outputs 
+// flutter pub run build_runner watch --delete-conflicting-outputs
